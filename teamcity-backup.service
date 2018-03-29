@@ -1,0 +1,11 @@
+[Unit]
+Description=TeamCity Backup
+
+[Service]
+Type=oneshot
+User=sysadmin
+Group=sysadmin
+ExecStart=/opt/teamcity_backup/.pyenv/bin/python2 -B /opt/teamcity_backup/teamcity_backup.py --conf=/opt/teamcity_backup/teamcity_backup.cfg --log-level=INFO
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=teamcity-backup
